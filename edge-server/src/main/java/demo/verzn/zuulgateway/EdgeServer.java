@@ -21,8 +21,8 @@ import org.springframework.web.client.RestTemplate;
  */
 
 @SpringBootApplication
-@EnableZuulProxy
-@EnableEurekaClient
+//@EnableZuulProxy
+//@EnableEurekaClient
 @RestController
 public class EdgeServer {
 

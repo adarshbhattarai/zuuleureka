@@ -1,6 +1,6 @@
 spring:
   application:
-    name: zuul-gateway
+    name: gateway
 #zuul:
 #  routes:
 #    manager:
@@ -8,7 +8,7 @@ spring:
 #    sales:
 #      url: http://localhost:8083
 server:
-  port: 8080
+  port: 8085
 
 #ribbon:
 #  eureka:
