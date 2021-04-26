@@ -6,9 +6,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="service1" />
-        <module name="service2" />
+        <module name="edge-server" />
         <module name="discovery-server" />
+        <module name="service2" />
+        <module name="service1" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

@@ -1,6 +1,5 @@
 package demo.verzn.zuulgateway;
 
-import com.netflix.discovery.converters.Auto;
 import demo.verzn.zuulgateway.filters.pre.SimpleFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
