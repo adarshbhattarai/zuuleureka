@@ -21,4 +21,7 @@ public class DepartmentController {
     public String available() {
         return "Manager is up and running";
     }
+
+
+
 }
