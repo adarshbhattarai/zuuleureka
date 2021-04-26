@@ -4,6 +4,9 @@ export default class Department extends Component {
 
     constructor(props){
         super(props);
+        this.state={
+            employees:[]
+        }
     }
     render(){
         return(

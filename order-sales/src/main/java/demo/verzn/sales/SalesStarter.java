@@ -21,6 +21,7 @@ import java.util.List;
 @SpringBootApplication
 @RestController
 @EnableEurekaClient
+@CrossOrigin(origins={"http://localhost:3000","http://localhost:3002"})
 public class SalesStarter {
 
     @Autowired

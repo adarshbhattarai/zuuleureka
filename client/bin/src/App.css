@@ -17,3 +17,9 @@ nav{
   align-items: center;
   list-style: none;
 }
+
+.rowC{
+  display:flex;
+  flex-wrap: wrap;
+  flex-direction:row;
+}

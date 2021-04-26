@@ -13,6 +13,7 @@ import java.util.List;
  * @project zuuleureka
  */
 @RestController
+@CrossOrigin(origins={"http://localhost:3000","http://localhost:3002"})
 public class DepartmentController {
 
     @Autowired

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from "axios";
+import axios from "../axios";
 
 export default class Sales extends Component {
 
@@ -8,8 +8,7 @@ export default class Sales extends Component {
     }
 
     componentDidMount(){
-
-        let salesUrl="https://api.coindesk.com/v1/bpi/currentprice.json";
+        let salesUrl="sales/orders";
         axios.get(salesUrl).then(response=>{
             console.log(response)
         })

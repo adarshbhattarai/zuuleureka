@@ -23,10 +23,8 @@ function App() {
 const Home = () => (
   <div>
     <h1>Home Page</h1>
-    <div>
+    <div className='rowC'>
       <Department/>
-    </div>
-    <div>
       <Sales/>
     </div>
   </div>
