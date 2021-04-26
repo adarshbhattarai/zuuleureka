@@ -36,10 +36,6 @@ public class DepartmentService {
         return ret;
     }
 
-    public List<Employee> getEmployeeByDeptID(int id){
-        return employeeRepository.getByDeptId(id);
-    }
-
     public Employee getEmployeeByID(Long id){
         return employeeRepository.findById(id).get();
     }

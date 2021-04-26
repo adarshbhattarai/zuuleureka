@@ -25,9 +25,36 @@ public class DepartmentController {
 
 
     @GetMapping("/departments")
-    private List<Department> getDepartments()
+    public List<Department> getDepartments()
     {
         return departmentService.getDepartmentList();
+    }
+
+    @GetMapping("/employees")
+    public List<Employee> getEmployees()
+    {
+        return departmentService.getEmployees();
+    }
+
+
+    @PutMapping("/employee")
+    public Employee updateEmployee(@RequestBody Employee employee)
+    {
+         departmentService.saveOrUpdate(employee);
+         return employee;
+    }
+
+    @PostMapping("/employee")
+    public Long createEmployee(@RequestBody Employee employee)
+    {
+        departmentService.saveOrUpdate(employee);
+        return employee.getId();
+    }
+
+    @DeleteMapping("/employee/{employeeId}")
+    public void createEmployee(@PathVariable("employeeId") Long employeeId)
+    {
+        departmentService.removeEmployeeById(employeeId);
     }
 
 
