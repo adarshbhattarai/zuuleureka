@@ -24,8 +24,8 @@ const Home = () => (
   <div>
     <h1>Home Page</h1>
     <div className='rowC'>
-      <Department/>
-      <Sales/>
+      <div className='tableItem'><Department readOnly={true}/></div>
+      <div className='tableItem'><Sales readOnly={true}/></div>
     </div>
   </div>
 )
