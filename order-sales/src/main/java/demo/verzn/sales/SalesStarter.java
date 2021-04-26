@@ -35,14 +35,14 @@ public class SalesStarter {
         return new RestTemplate();
     }
 
-    @GetMapping(value = "/get-order", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/orders", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Sorder>> getAllOrder(){
         List<Sorder> returnValue= new ArrayList<>();
         repository.findAll().forEach(returnValue::add);
         return new ResponseEntity<List<Sorder>>(returnValue, HttpStatus.OK);
     }
 
-    @PostMapping(value = "/add-order", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/add", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> addSalesOrder(@RequestBody Sorder salesorder){
         repository.save(salesorder);
         return new ResponseEntity<String>("Added successfully", HttpStatus.OK);
