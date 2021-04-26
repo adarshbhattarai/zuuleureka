@@ -4,6 +4,8 @@ import demo.verzn.manager.entity.Department;
 import demo.verzn.manager.entity.Employee;
 import demo.verzn.manager.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -53,9 +55,11 @@ public class DepartmentController {
     }
 
     @DeleteMapping("/employee/{employeeId}")
-    public void createEmployee(@PathVariable("employeeId") Long employeeId)
+    public ResponseEntity<Employee> delete(@PathVariable("employeeId") Long employeeId)
     {
+        Employee employee = departmentService.getEmployeeByID(employeeId);
         departmentService.removeEmployeeById(employeeId);
+        return new ResponseEntity<Employee>(employee, HttpStatus.OK);
     }
 
 
