@@ -1,9 +1,12 @@
 package demo.verzn.manager.controller;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
+import demo.verzn.manager.entity.Department;
+import demo.verzn.manager.entity.Employee;
+import demo.verzn.manager.service.DepartmentService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @author adarshbhattarai on 2021-04-25
@@ -12,16 +15,20 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class DepartmentController {
 
-    @GetMapping(value = "/api", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> test() throws Exception {
-        return new ResponseEntity<String>("Data received", HttpStatus.OK);
-    }
+    @Autowired
+    DepartmentService departmentService;
 
     @RequestMapping(value = "/isAvailable")
     public String available() {
         return "Manager is up and running";
     }
 
+
+    @GetMapping("/departments")
+    private List<Department> getDepartments()
+    {
+        return departmentService.getDepartmentList();
+    }
 
 
 }

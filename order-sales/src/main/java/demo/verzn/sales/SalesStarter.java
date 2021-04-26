@@ -1,5 +1,6 @@
 package demo.verzn.sales;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
@@ -10,6 +11,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author adarshbhattarai on 2021-04-25
  * @project zuuleureka
@@ -18,6 +22,9 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 @EnableEurekaClient
 public class SalesStarter {
+
+    @Autowired
+    OrderRepository repository;
 
     public static void main(String[] args) {
         SpringApplication.run(SalesStarter.class,args);
@@ -28,13 +35,16 @@ public class SalesStarter {
         return new RestTemplate();
     }
 
-    @GetMapping(value = "/sales", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> test() throws Exception {
-        return new ResponseEntity<String>("Sales Data Received", HttpStatus.OK);
+    @GetMapping(value = "/get-order", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Sorder>> getAllOrder(){
+        List<Sorder> returnValue= new ArrayList<>();
+        repository.findAll().forEach(returnValue::add);
+        return new ResponseEntity<List<Sorder>>(returnValue, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/isAvailable")
-    public String available(){
-        return "Sales is up and running";
+    @PostMapping(value = "/add-order", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> addSalesOrder(@RequestBody Sorder salesorder){
+        repository.save(salesorder);
+        return new ResponseEntity<String>("Added successfully", HttpStatus.OK);
     }
 }
